@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import he from 'he'
 import { useTheme } from '../context/ThemeContext';
 
 import Seo from '../components/Seo';
@@ -36,7 +35,6 @@ const Programmes = () => {
     const ProgrammesPosts = ({ programmesPost }) => {
         const mappedProgrammesPosts = programmesPost.map((programmesPost, index) => {
             const overviewImageId = programmesPost.acf?.overview_image || null;
-            const programmeOverview = programmesPost.acf?.programme_overview || '';
 
             const [overviewImageUrl, setOverviewImageUrl] = useState(null);
 
@@ -54,7 +52,7 @@ const Programmes = () => {
                     <div className="post-content">
                         {overviewImageUrl && <img src={overviewImageUrl} alt={programmesPost.title.rendered} />}
                         <div className="text-content">
-                            <p>{he.decode(programmeOverview)}</p>
+                            <div dangerouslySetInnerHTML={{ __html: programmesPost.acf.programme_overview }} />
                             <a href={`#/programme/${programmesPost.id}`} className="read-more-button">Read More</a>
                         </div>
                     </div>

@@ -305,6 +305,15 @@
       align-items: flex-start;
       gap: 1rem;
       width: 100%;
+
+      p {
+        margin-bottom: 10px;
+      }
+
+      ul {
+        margin-top: 10px;
+        padding-left: 35px;
+      }
     }
 
     .read-more-button {

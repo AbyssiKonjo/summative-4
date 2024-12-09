@@ -78,7 +78,8 @@ const Programme = () => {
             <div className='post-content'>
             {overviewImageUrl && <img src={overviewImageUrl} alt={programme.title.rendered} />}
             <div className='text-content'>
-                <p>{programme.acf.programme_overview}</p>
+                {/* <p>{programme.acf.programme_overview}</p> */}
+                <div dangerouslySetInnerHTML={{ __html: programme.acf.programme_overview }} />
               </div>
             </div>
           </div>
@@ -88,7 +89,8 @@ const Programme = () => {
             <div className='post-content'>
             {detailsImageUrl && <img src={detailsImageUrl} alt={programme.title.rendered} />}
             <div className='text-content'>
-                <p>{programme.acf.programme_details}</p>
+                {/* <p>{programme.acf.programme_details}</p> */}
+                <div dangerouslySetInnerHTML={{ __html: programme.acf.programme_details }} />
               </div>
             </div>
           </div>
@@ -98,7 +100,8 @@ const Programme = () => {
             <div className='post-content'>
             {outcomesImageUrl && <img src={outcomesImageUrl} alt={programme.title.rendered} />}
             <div className='text-content'>
-                <p>{programme.acf.programme_outcomes}</p>
+                {/* <p>{programme.acf.programme_outcomes}</p> */}
+                <div dangerouslySetInnerHTML={{ __html: programme.acf.programme_outcomes }} />
               </div>
             </div>
           </div>
