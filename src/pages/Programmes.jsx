@@ -26,28 +26,35 @@ const Programmes = () => {
             .catch((error) => console.log(error));
     }, []);
 
-    const truncateContent = (content) => {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(content, 'text/html');
-        const firstParagraph = doc.querySelector('p')?.textContent || '';
-        const decodedContent = he.decode(firstParagraph);
-        return decodedContent;
+    const getImageUrl = (imageId) => {
+        return axios
+            .get(`${baseUrl}/media/${imageId}`)
+            .then(response => response.data.source_url)
+            .catch(() => null);
     };
  
     const ProgrammesPosts = ({ programmesPost }) => {
         const mappedProgrammesPosts = programmesPost.map((programmesPost, index) => {
-            const featuredImage =
-                programmesPost._embedded?.['wp:featuredmedia']?.[0]?.source_url || null;
-            
+            const overviewImageId = programmesPost.acf?.overview_image || null;
+            const programmeOverview = programmesPost.acf?.programme_overview || '';
+
+            const [overviewImageUrl, setOverviewImageUrl] = useState(null);
+
+            useEffect(() => {
+                if (overviewImageId) {
+                    getImageUrl(overviewImageId).then(url => setOverviewImageUrl(url));
+                }
+            }, [overviewImageId]);
+    
             const postDirectionContainer = index % 2 === 0 ? 'leftPostContainer' : 'rightPostContainer';
     
             return (
                 <div key={programmesPost.slug + "-" + index} id={postDirectionContainer} className="post-container">
                     <h2 className="title" style={{ fontFamily: fontFamilyH2 }}>{programmesPost.title.rendered}</h2>
                     <div className="post-content">
-                        {featuredImage && <img src={featuredImage} alt={programmesPost.title.rendered} />}
+                        {overviewImageUrl && <img src={overviewImageUrl} alt={programmesPost.title.rendered} />}
                         <div className="text-content">
-                            <p>{truncateContent(programmesPost.content.rendered)}</p>
+                            <p>{he.decode(programmeOverview)}</p>
                             <a href={`#/programme/${programmesPost.id}`} className="read-more-button">Read More</a>
                         </div>
                     </div>

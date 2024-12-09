@@ -187,7 +187,6 @@
 #homePageHeader {
   width: 100%;
   height: 250px;
-  /* background-color: var(--teal); */
   background-size: cover;
   background-position: center;
   display: flex;
@@ -242,18 +241,20 @@
   .box2,
   .box3 {
     border-radius: 1.5rem;
+    background-size: cover;
+    background-position: center;
   }
 
   .box1 {
-    background-image: url(../public/programmes/atawhai.jpg);
+    background-image: url(../programmes/atawhai.jpg);
   }
 
   .box2 {
-    background-image: url(../public/programmes/tuakana.jpg);
+    background-image: url(../programmes/tuakana.jpg);
   }
 
   .box3 {
-    background-image: url(../public/programmes/mauri-tau.jpg);
+    background-image: url(../programmes/mauri-tau.jpg);
   }
 
   h2 {
@@ -269,7 +270,7 @@
   }
 }
 
-#pageContent {
+#pageContent, #singlePageContent {
   width: 100vw;
   padding: 1rem 2rem;
   display: flex;
@@ -279,7 +280,7 @@
 
 /* Posts */
 .post-container,
-#leftPostContainer {
+#leftPostContainer, .leftPostContainer {
   width: 100%;
 
   .post-content {
@@ -326,7 +327,7 @@
   }
 }
 
-#rightPostContainer {
+#rightPostContainer, .rightPostContainer {
   .post-content {
     display: flex;
     flex-direction: row-reverse;
@@ -383,55 +384,7 @@
   }
 }
 
-/* .wp-block-group {
-  padding: 1.5rem;
-  background-color: black;
-  display: flex;
-  gap: 1.5rem;
-
-  p {
-    display: block;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .wp-block-group__inner-container {
-    background-color: var(--white);
-    display: flex;
-    flex-direction: row;
-    color: var(--tki-color);
-    grid-template-columns: repeat(2, 1fr);
-    border-radius: 1.5rem;
-
-    .wp-block-image img {
-      border-top-left-radius: 1.5rem;
-      border-bottom-left-radius: 1.5rem;
-    }
-
-    p {
-      padding: 2rem;
-      font-size: 1.5rem;
-    }
-  }
-
-} */
-
-/* .programme-content {
-  display: flex;
-  flex-direction: row;
-
-  p {
-    background-color: var(--white);
-    color: var(--tki-color);
-  }
-} */
-
-/* .programme-post-content {
-  display: grid;
-  grid-template-columns: (2,1fr);
-} */
-
-
+/* Sponsors Page */
 #sponsorImage {
   display: flex;
   flex-direction: column;
