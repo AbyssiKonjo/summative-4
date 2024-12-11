@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 
-const formEndpoint = import.meta.env.VITE_APP_WP_API_FORM_ENDPOINT;
+const formEndpoint = import.meta.env.VITE_APP_WP_API_CONTACT_FORM_ENDPOINT;
 
 const ContactForm = () => {
     const [submitted, setSubmitted] = useState(false);
