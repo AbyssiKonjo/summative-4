@@ -27,7 +27,6 @@ const ContactForm = () => {
     
         axios.post(formEndpoint, contactForm)
         .then((response) => {
-            console.log(response);
             setSubmitted(true);
         })
         .catch((error) => {
@@ -65,6 +64,7 @@ const ContactForm = () => {
                     <label htmlFor="first-name">First Name:</label>
                     <input 
                         type="text" 
+                        id="first-name" 
                         name="first-name" 
                         onChange={(event) => setFirstName(event.target.value)}
                         value={firstName}
@@ -77,6 +77,7 @@ const ContactForm = () => {
                     <label htmlFor="last-name">Last Name:</label>
                     <input 
                         type="text" 
+                        id="last-name" 
                         name="last-name" 
                         onChange={(event) => setLastName(event.target.value)}
                         value={lastName}
@@ -91,6 +92,7 @@ const ContactForm = () => {
                     <label htmlFor="email">Your Email:</label>
                     <input 
                         type="email" 
+                        id="email" 
                         name="email" 
                         onChange={(event) => setEmail(event.target.value)}
                         value={email}
@@ -103,9 +105,11 @@ const ContactForm = () => {
                     <label htmlFor="phone">Phone:</label>
                     <input 
                         type="tel" 
+                        id="phone" 
                         name="phone" 
                         onChange={(event) => setPhone(event.target.value)}
                         value={phone}
+                        autoComplete="tel" 
                         placeholder="+64 000 0000" 
                         required
                     />
@@ -116,6 +120,7 @@ const ContactForm = () => {
                 <div className="form-wrapper">
                     <label htmlFor="enquire-type">Enquire Type:</label>
                     <select
+                        id="enquire-type"
                         name="enquire-type"
                         onChange={(event) => setEnquiry(event.target.value)}
                         value={enquiry}
@@ -134,8 +139,8 @@ const ContactForm = () => {
                 <div className="form-wrapper">
                     <label htmlFor="message">Your message (optional):</label>
                     <textarea
-                        name="message"
                         id="message"
+                        name="message"
                         onChange={(event) => setMessage(event.target.value)}
                         value={message}
                     />

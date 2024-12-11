@@ -18,7 +18,6 @@ const Tuakana = () => {
         axios
             .get(endpoint)
             .then((response) => {
-                console.log(response);
                 const reversedPosts = response.data.reverse();
                 setTeamPosts(reversedPosts);
                 setLoading(false);

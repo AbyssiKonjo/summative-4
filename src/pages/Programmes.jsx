@@ -18,8 +18,14 @@ const Programmes = () => {
         axios
             .get(endpoint)
             .then((response) => {
-                const reversedPosts = response.data.reverse();
-                setProgrammesPosts(reversedPosts);
+                const sortedPosts = response.data.sort((a, b) => {
+                    const titleA = a.title.rendered.toLowerCase();
+                    const titleB = b.title.rendered.toLowerCase();
+                    if (titleA < titleB) return -1;
+                    if (titleA > titleB) return 1;
+                    return 0;
+                });
+                setProgrammesPosts(sortedPosts);
                 setLoading(false);
             })
             .catch((error) => console.log(error));

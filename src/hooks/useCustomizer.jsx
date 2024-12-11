@@ -9,7 +9,8 @@ const useCustomizer = () => {
     const [fontFamilyBody, setFontFamilyBody] = useState('');
     const [mobileMenu, setMobileMenu] = useState('');
     const [navColor, setNavColor] = useState('');
-    const [primaryButtonColor, setPrimaryButtonColor] = useState('');
+    const [donateButtonColor, setDonateButtonColor] = useState('');
+    const [donateButtonHoverColor, setDonateButtonHoverColor] = useState('');
 
     const baseUrl = import.meta.env.VITE_WP_BASEURL;
 
@@ -17,7 +18,7 @@ const useCustomizer = () => {
         axios
         .get(`${baseUrl}wp-json/custom-theme/v1/customizer-settings`)
         .then((response) => {
-            const { backgroundColor, fontFamilyH1, fontFamilyH2, fontFamilyH3, fontFamilyBody, mobileMenu, navbarColor } = response.data;
+            const { backgroundColor, fontFamilyH1, fontFamilyH2, fontFamilyH3, fontFamilyBody, mobileMenu, navbarColor, donateButtonColor, donateButtonHoverColor } = response.data;
             setBgColor (backgroundColor);
             setFontFamilyH1(fontFamilyH1);
             setFontFamilyH2(fontFamilyH2);
@@ -25,14 +26,15 @@ const useCustomizer = () => {
             setFontFamilyBody(fontFamilyBody);            
             setMobileMenu (mobileMenu);
             setNavColor (navbarColor);
-            setPrimaryButtonColor (primaryButtonColor);
+            setDonateButtonColor(donateButtonColor);
+            setDonateButtonHoverColor(donateButtonHoverColor);
         })
         .catch((error) => {
             console.error('Error fetching customizer settings:', error);
         });
     }, [baseUrl]);
 
-    return { bgColor, fontFamilyH1, fontFamilyH2, fontFamilyH3, fontFamilyBody, mobileMenu, navColor };
+    return { bgColor, fontFamilyH1, fontFamilyH2, fontFamilyH3, fontFamilyBody, mobileMenu, navColor, donateButtonColor, donateButtonHoverColor };
 };
 
 export default useCustomizer

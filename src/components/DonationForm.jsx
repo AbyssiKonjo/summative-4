@@ -35,7 +35,6 @@ const DonationForm = () => {
           setSubmitted(true);
         })
         .catch((error) => {
-          console.log(error);
           setError(true);
         });
     };
@@ -58,6 +57,7 @@ const DonationForm = () => {
                 <div className="form-wrapper">
                     <label htmlFor="consistency">Consistency:</label>
                     <select 
+                        id="consistency"
                         name="consistency" 
                         required 
                         value={consistency}
@@ -74,6 +74,7 @@ const DonationForm = () => {
                 <div className='form-wrapper'>
                     <label htmlFor="currency">Currency:</label>
                     <select 
+                        id="currency"
                         name="currency" 
                         required 
                         value={currency}
@@ -92,6 +93,7 @@ const DonationForm = () => {
                     <label htmlFor="amount">Amount:</label>
                     <input 
                         type="number" 
+                        id="amount"
                         name="amount" 
                         onChange={(event) => setAmount(event.target.value)}
                         value={amount}
@@ -107,6 +109,7 @@ const DonationForm = () => {
                     <label htmlFor="first-name">First Name:</label>
                     <input 
                         type="text" 
+                        id="first-name"
                         name="first-name" 
                         onChange={(event) => setFirstName(event.target.value)}
                         value={firstName}
@@ -119,6 +122,7 @@ const DonationForm = () => {
                     <label htmlFor="last-name">Last Name:</label>
                     <input 
                         type="text" 
+                        id="last-name"
                         name="last-name" 
                         onChange={(event) => setLastName(event.target.value)}
                         value={lastName}
@@ -133,6 +137,7 @@ const DonationForm = () => {
                     <label htmlFor="email">Your Email:</label>
                     <input 
                         type="email"
+                        id="email"
                         name="email" 
                         autoComplete="email" 
                         onChange={(event) => setEmail(event.target.value)}
@@ -145,10 +150,12 @@ const DonationForm = () => {
                     <label htmlFor="phone">Phone:</label>
                     <input 
                         type="tel" 
+                        id="phone"
                         name="phone" 
                         placeholder="+64 000 0000" 
                         onChange={(event) => setPhone(event.target.value)}
                         value={phone}
+                        autoComplete="tel" 
                         required
                     />
                 </div>
@@ -159,6 +166,7 @@ const DonationForm = () => {
                     <label htmlFor="address">Address:</label>
                     <input 
                         type="text" 
+                        id="address"
                         name="address" 
                         onChange={(event) => setAddress(event.target.value)}
                         value={address}

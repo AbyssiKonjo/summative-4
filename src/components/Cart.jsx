@@ -29,7 +29,7 @@ const Cart = () => {
   return (
     <>
       {cart.length === 0 ? (
-        <p className='cart'>Your Cart is Empty. Add something from the left-hand side.</p>
+        <p className='cart'>Your Cart is Empty. Add something from the shop.</p>
       ) : (
         <div className='cart'>
           {cart.map((item) => {

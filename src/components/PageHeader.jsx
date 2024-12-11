@@ -14,7 +14,7 @@ const PageHeader = ({ title, image_url }) => {
     }
 
     const showBackIconPath = [
-        '/programme',
+        '/programme/',
         '/team',
         '/board',
         '/founder',

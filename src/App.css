@@ -12,6 +12,8 @@
   --teal: #6FC3C0;
   --black: #000000;
   --white: #ffffff;
+  --donateButtonColor: #6FC3C0;
+  --donateButtonHoverColor: #1d2b54;
 }
 
 #root {
@@ -122,25 +124,20 @@
       transition: width .5s;
     }
 
-    /* li a:hover::after, 
-    li a.active-link::after {
-      width: 100%;
-    } */
-
     #donateButton {
       width: 9rem;
       text-align: center;
-      background-color: var(--teal);
-      padding: 0.5rem;
+      background-color: var(--donateButtonColor);
+      padding: 0.8rem;
       border-radius: 50px;
-
-      a {
-        color: var(--white);
-      }
-
-      &:hover {
-        background-color: var(--tki-color);
-      }
+      color: var(--white);
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    #donateButton:hover {
+      background-color: var(--donateButtonHoverColor);
     }
   }
 
@@ -202,10 +199,12 @@
   h2 {
     text-align: right;
     font-size: 3.5rem;
+    margin-right: -15%;
   }
 
 }
 
+/* Programmes */
 .available-programmes {
   background-color: var(--white);
   color: var(--tki-color);
@@ -228,7 +227,7 @@
 
   #box {
     width: 450px;
-    height: 400px;
+    height: 450px;
     color: var(--white);
     font-size: 2rem;
     border-radius: 1.5rem;
@@ -237,36 +236,18 @@
     background-size: cover;
   }
 
-  .box1,
-  .box2,
-  .box3 {
-    border-radius: 1.5rem;
-    background-size: cover;
-    background-position: center;
-  }
-
-  .box1 {
-    background-image: url(../programmes/atawhai.jpg);
-  }
-
-  .box2 {
-    background-image: url(../programmes/tuakana.jpg);
-  }
-
-  .box3 {
-    background-image: url(../programmes/mauri-tau.jpg);
-  }
-
-  h2 {
+  #programmesSwiperHeading {
     margin-top: auto;
     display: inline;
     justify-content: center;
     align-content: baseline;
     text-decoration: none;
+    text-align: center;
   }
 
   a {
     text-decoration: none;
+    color: var(--white);
   }
 }
 
@@ -313,6 +294,7 @@
       ul {
         margin-top: 10px;
         padding-left: 35px;
+        margin-bottom: 10px;
       }
     }
 
@@ -393,6 +375,58 @@
   }
 }
 
+/* Tuakanas */
+#tuakana-swiper {
+  padding-top: 1.5rem;
+}
+.swiper-container {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white);
+  color: var(--tki-color);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  gap: 1rem;
+  align-items: center;
+  padding-top: 0;
+
+  p {
+    font-size: 2.5rem;
+  }
+  
+  .swiper {
+    width: 100%;
+    .swiper-slide {
+      width: 100%;
+      gap: 1.5rem;
+      .image-container {
+        display: flex;
+        flex-direction: row;
+        gap: 1.5rem;
+
+        .member-image img {
+          width: 450px;
+          height: 450px;
+          background-color: var(--teal);
+          border-radius: 1.5rem;
+        }
+      }
+    }
+  }
+
+  .swiper-pagination-bullet {
+    height: 1.5rem !important;
+    width: 1.5rem !important;
+    background-color: var(--white);
+    border: 1px solid var(--tki-color);
+    margin-top: 5rem;
+  }
+  .swiper-pagination-bullet-active {
+    background-color: var(--teal);
+    border: 1px solid var(--teal);
+  }
+}
+
 /* Sponsors Page */
 #sponsorImage {
   display: flex;
@@ -448,7 +482,7 @@
   }
 }
 
-/* Donation Form */
+/* Contact & Donation Form */
 form {
   background-color: var(--white);
   width: 50%;
@@ -456,17 +490,15 @@ form {
   flex-direction: column;
   padding: 1.5rem;
   margin: auto;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   border-radius: 1.5rem;
 
   h3 {
     text-align: center;
-    margin-bottom: 1rem;
   }
 
   p {
     color: var(--tki-color);
-    margin-bottom: 1rem;
     font-size: 1.5rem;
   }
 
@@ -482,7 +514,7 @@ form {
 
       label {
         padding-bottom: 0.4rem;
-        font-size: 2rem;
+        font-size: 1.5rem;
         color: var(--tki-color);
         font-weight: 600;
         margin-top: 1rem;
@@ -494,7 +526,7 @@ form {
         border-radius: 0.2rem;
         padding: 0.5rem;
         font-size: 1rem;
-        height: 50px;
+        height: 40px;
         border: 1px solid var(--tki-color);
       }
 
@@ -503,13 +535,14 @@ form {
         height: 200px;
         font-size: 1.5rem;
         border: 1px solid var(--tki-color);
+        border-radius: 0.2rem;
       }
     }
   }
 
   #submitButton {
     margin: auto;
-    padding: 1rem;
+    padding: 0.5rem;
     margin-top: 2rem;
     border-radius: 50px;
     width: 60%;
@@ -562,7 +595,7 @@ form {
     height: 160px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     background-color: var(--white);
     color: var(--tki-color);
     border-bottom-left-radius: 1.5rem;
@@ -732,6 +765,10 @@ footer {
     h1 {
       font-size: 4.5rem;
     }
+
+    h2 {
+      font-size: 3rem;
+    }
   }
 
   .navbar {
@@ -774,9 +811,12 @@ footer {
           text-decoration: none;
           font-size: 30px;
           font-weight: 700;
-          text-transform: uppercase;
           border: none;
         }
+      }
+
+      #donateButton {
+        width: 15rem;
       }
     }
 
@@ -788,20 +828,51 @@ footer {
 
   #homePageHeader {
     h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
     }
 
     h2 {
-      text-align: right;
-      font-size: 1.9rem;
+      font-size: 2rem;
+      margin-right: -20%;
     }
   }
 
+  .header-section {
+    height: 200px;
+  }
+
   .available-programmes {
+    background-color: var(--white);
+    color: var(--tki-color);
+    border-radius: 1.5rem;
+    display: flex;
+    flex-direction: column;
+  
+    p {
+      font-size: 2rem;
+    }
+  
     .programme-wrapper {
       display: flex;
-      flex-wrap: wrap;
-    }    
+      flex-direction: row;
+      justify-content: space-around;
+      padding: 1.5rem;
+      gap: 1rem;
+    }
+  
+    #box {
+      width: 310px;
+      height: 310px;
+    }
+
+    #programmesSwiperHeading {
+      font-size: 2.5rem;
+    }
+
+    .swiper-pagination-bullet {
+      height: 1rem !important;
+      width: 1rem !important;
+    }
   }
 
   .post-container,
@@ -820,12 +891,26 @@ footer {
           font-size: 2rem;
         }
 
-        p {
+        p, ul {
           font-size: 16px;
         }
 
         .read-more-button {
           width: 100%;
+        }
+      }
+    }
+  }
+
+  .swiper-container {    
+    .swiper {
+      .swiper-slide {
+        .image-container {
+          justify-content: space-around;
+          .member-image img {
+            width: 310px;
+            height: 310px;
+          }
         }
       }
     }
@@ -839,16 +924,27 @@ footer {
     }
   }
 
+  .product {
+    justify-content: space-between;
+  
+    #productCard {
+      width: 220px;
+    }
+  
+    img {
+      width: 220px;
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem;
+    }
+  
+    .product-content {
+      border-bottom-left-radius: 1rem;
+      border-bottom-right-radius: 1rem;
+    }
+  }
+
   .product-and-cart-container {
     flex-wrap: wrap;
-
-    #productCard {
-      width: 100%;
-
-      img {
-        width: 100%;
-      }
-    }
 
     .vl {
       display: none;
@@ -856,7 +952,20 @@ footer {
 
     .cart {
       margin: auto;
-      width: 85%;
+      width: 91.5%;
+      border-radius: 1rem;
+    }
+  }
+
+  form {
+    width: 70%;
+  
+    p {
+      font-size: 1.4rem;
+    }
+  
+    #submitButton {
+      width: 100%;
     }
   }
 
@@ -884,78 +993,30 @@ footer {
     }
   }
 
-  .navbar {
-    flex-direction: row;
-    justify-content: space-between;
-
-    .logo img {
-      width: 180px;
-      height: 70px;
-    }
-
-    .menu-icon {
-      display: flex;
-    }
-
-    .menu-open .menu-icon {
-      position: fixed;
-    }
-
-    .nav-links {
-      display: none;
-      flex-direction: column;
-      position: fixed;
-      top: 0;
-      left: 0;
-      background-color: white;
-      width: 100%;
-      height: 100%;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.3s ease-in-out;
-      transform: translateY(-100%);
-
-      li {
-        margin: 1rem 0;
-        text-align: center;
-
-        a {
-          color: black;
-          text-decoration: none;
-          font-size: 30px;
-          font-weight: 700;
-          text-transform: uppercase;
-          border: none;
-        }
-      }
-    }
-
-    .nav-links.active {
-      display: flex;
-      transform: translateY(0);
-    }
-  }
-
   #homePageHeader {
     h1 {
       font-size: 2.5rem;
     }
 
     h2 {
-      text-align: right;
       font-size: 1.9rem;
+      margin-right: -24%;
     }
   }
 
   .available-programmes {
+    p {
+      font-size: 1rem;
+    }
+
     #box {
       width: 300px;
       height: 250px;
 
-      h2{
-        font-size: 3.5rem;
+      #programmesSwiperHeading{
+        font-size: 2rem;
       }
-    }  
+    }
   }
 
   #postContainer,
@@ -1017,24 +1078,53 @@ footer {
     }
   }
 
-  .product-and-cart-container {
-    flex-wrap: wrap;
-
+  .product {  
+    justify-content: center;
     #productCard {
-      width: 100%;
-
-      img {
-        width: 100%;
-      }
+      width: 170px;
     }
-
-    .vl {
-      display: none;
+  
+    img {
+      width: 170px;
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem;
     }
+  
+    .product-content {
+      border-bottom-left-radius: 1rem;
+      border-bottom-right-radius: 1rem;
+    }
+  }
 
+  .product-and-cart-container {
     .cart {
       margin: auto;
       width: 85%;
+    }
+  }
+
+  form {
+    background-color: var(--white);
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    margin: auto;
+    margin-top: 1.5rem;
+    border-radius: 1.5rem;
+  
+    /* h3 {
+      margin-bottom: 0;
+    } */
+  
+    .form-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0rem;
+    }
+  
+    #submitButton {
+      font-size: 2rem;
     }
   }
 

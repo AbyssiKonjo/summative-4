@@ -8,7 +8,7 @@ export const useTheme = () => {
 };
 
 export const ThemeProvider = ({ children }) => {
-  const { bgColor, fontFamilyH1, fontFamilyH2, fontFamilyH3, fontFamilyBody, navColor, primaryButtonColor } = useCustomizer();
+  const { bgColor, fontFamilyH1, fontFamilyH2, fontFamilyH3, fontFamilyBody, navColor, donateButtonColor, donateButtonHoverColor } = useCustomizer();
 
   const value = {
     bgColor,
@@ -17,7 +17,8 @@ export const ThemeProvider = ({ children }) => {
     fontFamilyH3,
     fontFamilyBody,
     navColor,
-    primaryButtonColor,
+    donateButtonColor,
+    donateButtonHoverColor,
   };
 
   return (
